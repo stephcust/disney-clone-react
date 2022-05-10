@@ -1,28 +1,50 @@
 import styled from "styled-components";
 import { auth, provider } from '../firebaseConfig';
-import { signInWithPopup } from "firebase/auth";
+import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { 
     selectUserName, 
     selectUserPhoto,
-    setUserLoginDetails, 
+    setUserLoginDetails,
+    setSignOutState, 
 } from '../features/user/userSlice';
 
 
 const Header = (props) => {
     const dispatch = useDispatch();
-    const history = useNavigate();
+    const navigate = useNavigate();
     const userName = useSelector(selectUserName);
     const userPhoto = useSelector(selectUserPhoto);
+    
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if(user) {
+                setUser(user)
+                navigate('/home')
+            }
+        })
+    }, [userName]);
 
     const handleAuth = () => {
+        if(!userName) {
         signInWithPopup(auth, provider)
         .then((result) => {
             setUser(result.user);
         }).catch((error) => {
             alert(error.message)
         });
+    } else if(userName) {
+        signOut(auth)
+        .then(()=> {
+            dispatch(setSignOutState());
+            navigate('/')
+        }).
+        catch((error)=> {
+            alert(error.message)
+        });
+    }
     };
 
     const setUser = (user) => {
@@ -34,6 +56,7 @@ const Header = (props) => {
             })
         );
     };
+
 
     return (
         <Nav>
@@ -72,9 +95,12 @@ const Header = (props) => {
                         <span>SÉRIES</span>
                     </a>
                 </NavMenu>
-                <div>
+                <SignOut>
                     <UserImg src={userPhoto} alt={userName}/>
-                </div>                    
+                    <DropDown>
+                        <span onClick={handleAuth}>Sair</span>
+                    </DropDown>
+                </SignOut>                    
                 </> )
             }
         </Nav>
@@ -184,7 +210,8 @@ const Login = styled.a`
   letter-spacing: 1.5px;
   border: 1px solid #f9f9f9;
   border-radius: 4px;
-  transition: all 0.2s ease 0s; 
+  transition: all 0.2s ease 0s;
+  cursor: pointer; 
 
   &:hover {
       background-color: #f9f9f9;
@@ -194,6 +221,42 @@ const Login = styled.a`
 `;
 const UserImg = styled.img`
   height: 100%;
+`;
+const DropDown = styled.div`
+  position: absolute;
+  top: 48px;
+  right: 0px;
+  background: rgb(19,19,19);
+  border: 1px solid rgba(151,151,151,0.34);
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 50%) 0px 0px 18px 0px;
+  padding: 8px;
+  letter-spacing: 3px;
+  width: 100px;
+  text-align: center;
+  opacity: 0;
+`;
+const SignOut = styled.div`
+  position: relative;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
+  ${UserImg} {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+  }
+
+  &:hover {
+      ${DropDown} {
+          opacity: 1;
+          transition-duration: 1s;
+      }
+  }
 `;
 
 export default Header; 
