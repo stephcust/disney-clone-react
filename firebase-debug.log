@@ -1,0 +1,14 @@
+[debug] [2022-05-13T23:44:48.119Z] ----------------------------------------------------------------------
+[debug] [2022-05-13T23:44:48.128Z] Command:       C:\Users\steph\DOWNLO~1\firebase-tools-instant-win.exe C:\Users\steph\.cache\firebase\tools\lib\node_modules\firebase-tools\lib\bin\firebase deploy
+[debug] [2022-05-13T23:44:48.129Z] CLI Version:   10.9.2
+[debug] [2022-05-13T23:44:48.129Z] Platform:      win32
+[debug] [2022-05-13T23:44:48.130Z] Node Version:  v12.18.1
+[debug] [2022-05-13T23:44:48.229Z] Time:          Fri May 13 2022 19:44:48 GMT-0400 (GMT-04:00)
+[debug] [2022-05-13T23:44:48.229Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-13T23:44:48.642Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-13T23:44:48.644Z] > authorizing via signed-in user (stephesonclaytonfc@gmail.com)
+[debug] [2022-05-13T23:44:48.644Z] [iam] checking project disneyplus-clone-7df0b for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-05-13T23:44:48.677Z] > refreshing access token with scopes: []
+[debug] [2022-05-13T23:44:48.681Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
