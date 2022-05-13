@@ -12,3 +12,10 @@
 [debug] [2022-05-13T23:44:48.677Z] > refreshing access token with scopes: []
 [debug] [2022-05-13T23:44:48.681Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
+[debug] [2022-05-13T23:44:49.399Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Fri, 13 May 2022 23:44:49 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-05-13T23:44:50.386Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/disneyplus-clone-7df0b:testIamPermissions [none]
+[debug] [2022-05-13T23:44:50.387Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/disneyplus-clone-7df0b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-13T23:44:51.677Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/disneyplus-clone-7df0b:testIamPermissions 200
+[debug] [2022-05-13T23:44:51.678Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/disneyplus-clone-7df0b:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-05-13T23:44:51.684Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/disneyplus-clone-7df0b [none]
+[debug] [2022-05-13T23:44:52.991Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/disneyplus-clone-7df0b 200
