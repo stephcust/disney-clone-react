@@ -74,11 +74,11 @@ const Header = (props) => {
                         <img src="/images/homeIcon.svg" alt="INÍCIO"/>
                         <span>INÍCIO</span>
                     </a>
-                    <a>
+                    <a href="/home">
                         <img src="/images/searchIcon.svg" alt="PESQUISA"/>
                         <span>PESQUISA</span>
                     </a>
-                    <a href="/home" >
+                    <a href="/home">
                         <img src="/images/watchlistIcon.svg" alt="MINHA LISTA"/>
                         <span>MINHA LISTA</span>
                     </a>
